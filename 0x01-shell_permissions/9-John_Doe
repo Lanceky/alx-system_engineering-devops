@@ -1,3 +1,2 @@
 #!/bin/bash
-chmod 711 hello
-chmod u=rwx,go=rxw hello
+chmod 711 hello && chmod u=rwx,go=rxw hello
