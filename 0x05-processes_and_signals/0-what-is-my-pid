@@ -1,4 +1,8 @@
-#!/usr/bin/env bash
+#!/bin/bash
 
-# This script displays itw own pid
+# Display the PID of the script
 echo $$
+
+# Exit the script
+exit 0
+
