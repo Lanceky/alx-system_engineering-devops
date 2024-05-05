@@ -2,7 +2,3 @@
 
 # Display the PID of the script
 echo $$
-
-# Exit the script
-exit 0
-
