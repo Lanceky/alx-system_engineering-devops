@@ -1,0 +1,36 @@
+#!/usr/bin/env bash
+# This script configures Nginx to run as nginx user and listens on port 8080
+
+# Update nginx.conf to run as nginx user
+sed -i 's/user\s*nginx;/user nginx;/' /etc/nginx/nginx.conf
+
+# Remove the default server block to avoid conflicts (if needed)
+rm -f /etc/nginx/sites-enabled/default
+
+# Ensure nginx is listening on port 8080 in the default server block
+echo "server {
+    listen 8080 default_server;
+    listen [::]:8080 default_server;
+
+    root /var/www/html;
+    index index.html index.htm index.nginx-debian.html;
+
+    server_name _;
+
+    location / {
+        try_files \$uri \$uri/ =404;
+    }
+}" > /etc/nginx/sites-available/default
+
+# Create symlink to enable the default server block
+ln -s /etc/nginx/sites-available/default /etc/nginx/sites-enabled/
+
+# Verify nginx configuration
+nginx -t
+
+# Start nginx
+service nginx start
+
+# Check if nginx is running as nginx user
+ps aux | grep nginx
+
