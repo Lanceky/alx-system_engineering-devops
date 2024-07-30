@@ -75,5 +75,4 @@ if __name__ == "__main__":
     except ValueError:
         print("Employee ID must be an integer")
         sys.exit(1)
-
     gather_and_export_todo_data(employee_id)
