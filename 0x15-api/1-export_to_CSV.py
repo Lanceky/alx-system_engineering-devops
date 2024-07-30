@@ -52,7 +52,10 @@ def export_to_csv(employee_id):
         if task_count == len(todos):
             print("Number of tasks in CSV: OK")
         else:
-            print(f"Number of tasks in CSV: {task_count} (expected {len(todos)})")
+            print(
+                f"Number of tasks in CSV: {task_count} "
+                f"(expected {len(todos)})"
+            )
 
 
 if __name__ == "__main__":
