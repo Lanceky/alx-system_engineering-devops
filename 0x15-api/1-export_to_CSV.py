@@ -10,7 +10,6 @@ Usage:
 Parameters:
     <employee_id> - The ID of the employee for whom to fetch TODO data.
 """
-
 import csv
 import sys
 import requests
@@ -18,12 +17,11 @@ import requests
 
 def gather_and_export_todo_data(employee_id):
     """
-    Fetches TODO list data for a given employee ID and exports it to a CSV file.
-
+    Fetches TODO list data for a given employee ID and exports it to a CSV file
     Args:
         employee_id (int): The ID of the employee to fetch TODO data for.
     """
-    # Define the API URLs
+    # De
     user_url = (
         f"https://jsonplaceholder.typicode.com/users/{employee_id}"
     )
