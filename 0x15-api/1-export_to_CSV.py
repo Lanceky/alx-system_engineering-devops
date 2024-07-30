@@ -12,6 +12,7 @@ import csv
 import requests
 import sys
 
+
 def export_to_csv(employee_id):
     """Exports TODO data for a given employee ID to a CSV file."""
     url = f"https://jsonplaceholder.typicode.com/users/{employee_id}"
@@ -31,9 +32,15 @@ def export_to_csv(employee_id):
     with open(filename, mode='w', newline='') as file:
         writer = csv.writer(file, quoting=csv.QUOTE_ALL)
         for task in todos:
-            writer.writerow([employee_id, user_name, task['completed'], task['title']])
+            writer.writerow([
+                employee_id,
+                user_name,
+                task['completed'],
+                task['title']
+            ])
 
     print(f"Data exported to {filename}")
+
 
 if __name__ == "__main__":
     if len(sys.argv) != 2:
@@ -44,4 +51,3 @@ if __name__ == "__main__":
             export_to_csv(employee_id)
         except ValueError:
             print("Invalid employee ID. It should be an integer.")
-
