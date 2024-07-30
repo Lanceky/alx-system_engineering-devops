@@ -11,6 +11,7 @@ includes columns for task ID, title, and completion status.
 import csv
 import requests
 import sys
+import os
 
 
 def export_to_csv(employee_id):
@@ -42,6 +43,16 @@ def export_to_csv(employee_id):
             ])
 
     print(f"Data exported to {filename}")
+
+    # Verify number of tasks
+    if os.path.exists(filename):
+        with open(filename, mode='r') as file:
+            reader = csv.reader(file)
+            task_count = sum(1 for row in reader) - 1  # Subtract 1 for header
+        if task_count == len(todos):
+            print("Number of tasks in CSV: OK")
+        else:
+            print(f"Number of tasks in CSV: {task_count} (expected {len(todos)})")
 
 
 if __name__ == "__main__":
