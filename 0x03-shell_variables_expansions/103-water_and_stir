@@ -1,2 +1,5 @@
 #!/bin/bash
-perl -e '$w=0;$s=0;$w=oct(join("",map{chr(index("water",$_)+48)}split//,$ENV{WATER}));$s=oct(join("",map{chr(index("stir",$_)+48)}split//,$ENV{STIR}));$sum=$w+$s;$base="bestchol";$result="";while($sum>0){$result=substr($base,$sum%length($base),1).$result;$sum=int($sum/length($base))}print"$result\n"'
+WATER_DEC=$(echo "$WATER" | tr 'ewatr' '01234' | perl -pe '$_ = eval join "+", map {$_ . "*5**" . (--$#$_)} split //') 
+STIR_DEC=$(echo "$STIR" | tr 'ti.r' '0123' | perl -pe '$_ = eval join "+", map {$_ . "*4**" . (--$#$_)} split //') 
+RESULT_DEC=$((WATER_DEC + STIR_DEC)) 
+echo "$RESULT_DEC" | perl -pe '$_ = do { $s = ""; $s = substr("shtbeolhc", $_ % 9, 1) . $s while $_; $s }'
