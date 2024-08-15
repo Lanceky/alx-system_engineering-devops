@@ -1,3 +1,2 @@
 #!/bin/bash
-WATER_DEC=$(echo "$WATER" | tr 'ewatr' '01234' | perl -pe '$_ = eval join "+", map {$_ . "*5**" . (--$#$_)} split //') STIR_DEC=$(echo "$STIR" | tr 'ti.r' '0123' | perl -pe '$_ = eval join "+", map {$_ . "*4**" . (--$#$_)} split //') RESULT_DEC=$((WATER_DEC + STIR_DEC)) \
-echo "$RESULT_DEC" | perl -pe '$_ = do { $s = ""; $s = substr("shtbeolhc", $_ % 9, 1) . $s while $_; $s }'
+WATER_DEC=$(echo "$WATER" | tr 'ewatr' '01234' | perl -pe '$_ = eval join "+", map {$_ . "*5**" . (--$#$_)} split //') STIR_DEC=$(echo "$STIR" | tr 'ti.r' '0123' | perl -pe '$_ = eval join "+", map {$_ . "*4**" . (--$#$_)} split //') RESULT_DEC=$((WATER_DEC + STIR_DEC)) \echo "$RESULT_DEC" | perl -pe '$_ = do { $s = ""; $s = substr("shtbeolhc", $_ % 9, 1) . $s while $_; $s }'
