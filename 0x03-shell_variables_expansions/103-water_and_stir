@@ -1,2 +1,2 @@
 #!/bin/bash
-printf '%x\n' $(( $(printf '%d' $(echo "$WATER" | tr 'ewtar' '01234')) + $(printf '%d' $(echo "$STIR" | tr 'ti.r' '01234')) )) | tr '0123456789abcdef' 'shtbeolch'
+WATER_DEC=$(echo "$WATER" | perl -e 'print unpack("H*", "ewwatratewa")') STIR_DEC=$(echo "$STIR" | perl -e 'print unpack("H*", "ti.itirtrtr")') RESULT=$((WATER_DEC + STIR_DEC)) echo "obase=18; $RESULT" | bc | perl -e 'print join("", map { ("shtbeolhc")[$_] } split(//, <STDIN>))'
