@@ -1,2 +1,2 @@
 #!/bin/bash
-for combo in {a..z}{a..z}; do [ "$combo" != "oo" ] && echo $combo; done
+for combo in {a..z}{a..z}; do if [ "$combo" != "oo" ]; then echo $combo; fi; done
