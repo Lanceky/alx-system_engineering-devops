@@ -1,11 +1,2 @@
 #!/bin/bash
-for a in {a..z}
-do
-    for b in {a..z}
-    do
-        if [ "$a$b" != "oo" ]
-        then
-            echo "$a$b"
-        fi
-    done
-done
+for a in {{a..z},{a..z}}; do [ "$a" != "oo" ] && echo "$a"; done
