@@ -1,0 +1,39 @@
+#!/bin/bash
+
+# Define base conversion functions
+base_to_dec() {
+    local num=$1
+    local base=$2
+    echo "$num" | tr "$base" '0123456789' | awk '{print strtonum($0)}'
+}
+
+dec_to_base() {
+    local num=$1
+    local base=$2
+    local digits="0123456789abcdefghijklmnopqrstuvwxyz"
+    local result=""
+    while [ $num -gt 0 ]; do
+        local remainder=$(( num % base ))
+        result="${digits:remainder:1}$result"
+        num=$(( num / base ))
+    done
+    echo $result
+}
+
+# Define base representations
+water_base="ewwatratewa" # Base-5
+stir_base="ti.itirtrtr"  # Base-8
+bestchol_base="shtbeolch" # Base-16
+
+# Convert water and stir numbers to decimal
+water_num=$(base_to_dec "$WATER" "$water_base")
+stir_num=$(base_to_dec "$STIR" "$stir_base")
+
+# Add the numbers
+sum=$(($water_num + $stir_num))
+
+# Convert the result to base bestchol
+result=$(dec_to_base "$sum" "${bestchol_base}")
+
+# Print the result
+echo "$result"
