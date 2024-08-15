@@ -1,2 +1,2 @@
 #!/bin/bash
-WATER_DEC=$(echo "$WATER" | perl -e 'print unpack("H*", "ewwatratewa")') STIR_DEC=$(echo "$STIR" | perl -e 'print unpack("H*", "ti.itirtrtr")') RESULT=$((WATER_DEC + STIR_DEC)) echo "obase=18; $RESULT" | bc | perl -e 'print join("", map { ("shtbeolhc")[$_] } split(//, <STDIN>))'
+perl -e '$w=0; $s=0; $w=hex(join("", map { sprintf "%02x", index("water", $_) } split //, $ENV{WATER})); $s=hex(join("", map { sprintf "%02x", index("stir", $_) } split //, $ENV{STIR})); $sum=$w+$s; @digits=split //, "bestchol"; $res=""; while($sum>0) { $res=$digits[$sum%8].$res; $sum=int($sum/8) } print "$res\n";'
