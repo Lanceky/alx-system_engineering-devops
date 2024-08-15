@@ -1,0 +1,1 @@
+This project includes a series of scripts demonstrating basic shell variable manipulations and expansions. Scripts cover tasks such as creating aliases, modifying the PATH, managing environment and local variables, performing arithmetic operations, and converting binary numbers. Each script adheres to specified requirements and is designed to run on Ubuntu 20.04 LTS.
