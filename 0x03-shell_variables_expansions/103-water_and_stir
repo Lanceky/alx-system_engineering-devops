@@ -1,2 +1,2 @@
 #!/bin/bash
-perl -e '$w=0; $s=0; $w=hex(join("", map { sprintf "%02x", index("water", $_) } split //, $ENV{WATER})); $s=hex(join("", map { sprintf "%02x", index("stir", $_) } split //, $ENV{STIR})); $sum=$w+$s; @digits=split //, "bestchol"; $res=""; while($sum>0) { $res=$digits[$sum%8].$res; $sum=int($sum/8) } print "$res\n";'
+perl -e '$w=0;$s=0;$w=oct(join("",map{chr(index("water",$_)+48)}split//,$ENV{WATER}));$s=oct(join("",map{chr(index("stir",$_)+48)}split//,$ENV{STIR}));$sum=$w+$s;$base="bestchol";$result="";while($sum>0){$result=substr($base,$sum%length($base),1).$result;$sum=int($sum/length($base))}print"$result\n";'
